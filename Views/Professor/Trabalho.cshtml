@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+    ViewData["Title"] = "Área do Professor";
+}
+
+<html>
+    <body>
+
+        <div class="container py-4">    
+            <p class="h5 font-weight-bold border-bottom pb-2 mb-3">Título: @Model.title</p>
+            <p class="h5 font-weight-bold border-bottom pb-2 mb-3">Descrição: @Model.description</p>
+            <p class="h5 font-weight-bold border-bottom pb-2 mb-3">Pontuação Máxima: @Model.maxGrade</p>
+        </div>
+
+
+
+    <form class="table-responsive" method="get" asp-controller="Professor" asp-action="TrabalhoCompleto">
+        <input type="submit" value="Salvar Mudanças" class="btn btn-primary mb-3"/>
+    
+        <table class="table table-bordered table-hover table-striped align-middle text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>Nome do Aluno</th>
+                    <th>Completou o Trabalho</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                    @foreach (var student in Model.studentWork)
+                    {
+                        <tr>
+                            <td class="align-middle"><p>@student.Name</p></td>
+                            <td class="align-middle"> 
+                                <input type="checkbox" name="compleated" value="@student.Id" @(student.CompletedWork ? "checked" : "") class="form-check-input mx-auto" />
+                            </td>
+                            <td class="align-middle">
+                                @if (@student.CompletedWork)
+                                {
+                                        <input type="hidden" name="grades" value="@student.Grade"/>
+                                        <p class="mb-0">@student.Grade</p>
+                                }
+                                else
+                                {
+                                        <input type="number" step="0.01" name="grades" class="form-control mx-auto" style="width: 100px"/>
+                                }
+                            </td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+        <input name="workId" type="hidden" value="@Model.workId"/>
+        <input name="classCode" type="hidden" value="@Model.classCode" />
+        
+        <label class="form-check-label" for="terminado">Marcar como terminado:</label>
+        <input class="form-check-input" type="checkbox" id="terminado" name="ended">
+    </form>
+
+    </body>
+</html>

@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<html>
+    <body>
+        <div class="overflow-auto">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Ano</th>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var classe in Model)
+                    {
+                        <tr>
+                            <td>@classe.Id</td>
+                            <td>@classe.Grade&ordm;</td>
+                            <td>@classe.ClassCode</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <hr></hr>
+
+        <form asp-controller="Admin" asp-action="AddClass" method="get">
+            <label for="grade">Ano</label>
+            <select name="grade" id="grade">
+                <option value="1">1º</option>
+                <option value="2">2º</option>
+                <option value="3">3º</option>
+            </select>
+            <input type="text" name="name" placeholder="Nome"/>
+            <input type="submit" value="Adicionar"/>
+        </form>
+    </body>
+</html>

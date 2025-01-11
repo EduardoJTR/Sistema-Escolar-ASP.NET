@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+    ViewData["Title"] = "Área do Professor";
+}
+
+<html>
+    <body>
+        <form method="get" asp-controller="Professor" asp-action="Turma">
+            <select name="className">
+                @foreach(var _class in Model)
+                {
+                    <option value="@_class">@_class</option>
+                }
+            </select>
+            <input type="submit" value="Continuar"/>
+        </form>
+    </body>
+</html>

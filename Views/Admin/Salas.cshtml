@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<html>
+    <body>
+        <table class="table table-striped">
+            <thead>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+            </thead>
+            <tbody>
+                @foreach(var classRoom in Model)
+                {
+                    <tr>
+                        <td>@classRoom.Id</td>
+                        <td>@classRoom.RoomCode</td>
+                        @switch (classRoom.RoomType)
+                        {
+                            case "n":
+                                <td>Normal</td>
+                                break;
+                            case "i":
+                                <td>Informática</td>
+                                break;
+                            case "q":
+                                <td>Lab. Química</td>
+                                break;
+                        }
+                    </tr>
+                }
+        </tbody>
+        </table>
+    </body>
+</html>

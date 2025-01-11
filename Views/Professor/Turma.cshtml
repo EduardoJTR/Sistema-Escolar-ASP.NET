@@ -1,0 +1,102 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+    ViewData["Title"] = "Área do Professor";
+}
+
+<html>
+    <body class="bg-light py-4">
+    <div class="container">
+        <p class="h4 text-center mb-4">Detalhes da turma: <strong>@Model.ClassName</strong></p>
+
+        <p class="h3 text-left mb-4">Provas</p>
+        <hr />
+        <form asp-controller="Professor" asp-action="Prova">
+            <div class="form-group">
+                <label for="materia">Selecione a Materia</label>
+                <select name="subjectId" class="form-select" id="materia">
+                    @foreach(var sbj in Model.subjects)
+                    {
+                        <option value="@sbj.Id">@sbj.Name</option>
+                    }
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <button type="submit" name="term" value="1" class="btn btn-primary btn-block">Lançar provas e Notas do 1º Bimestre</button>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" name="term" value="2" class="btn btn-primary btn-block">Lançar provas e Notas do 2º Bimestre</button>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" name="term" value="3" class="btn btn-primary btn-block">Lançar provas e Notas do 3º Bimestre</button>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" name="term" value="4" class="btn btn-primary btn-block">Lançar provas e Notas do 4º Bimestre</button>
+            </div>
+
+            <input type="hidden" value="@Model.ClassName" name="classCode"/>
+        </form>
+
+
+        <p class="h3 text-left mb-4">Trabalhos</p>
+        <hr />
+
+        <div class="text-left mb-4">
+            <a class="btn btn-primary btn-lg" asp-action="AddTrabalho" asp-route-ClassName="@Model.ClassName">
+                Adicionar Trabalho
+            </a>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                Trabalhos Ativos
+            </div>
+            <div class="card-body">
+                @foreach(var work in Model.Works)
+                {
+                    if (work.Active)
+                    {
+                        <a class="btn btn-outline-primary btn-block mb-2" 
+                           asp-controller="Professor" 
+                           asp-action="Trabalho" 
+                           asp-route-WorkId="@work.Id" 
+                           asp-route-ClassCode="@Model.ClassName">
+                            @work.Title
+                        </a>
+                        <br />
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                Trabalhos Terminados
+            </div>
+            <div class="card-body">
+                @foreach(var work in Model.Works)
+                {
+                    if (!work.Active)
+                    {
+                        <a class="btn btn-outline-secondary btn-block mb-2" 
+                           asp-controller="Professor" 
+                           asp-action="Trabalho" 
+                           asp-route-Id="@work.Id" 
+                           asp-route-ClassCode="@Model.ClassName">
+                            @work.Title
+                        </a>
+                        <br />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

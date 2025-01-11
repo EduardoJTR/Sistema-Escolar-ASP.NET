@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+    ViewData["Title"] = "Área do Professor";
+}
+
+<html>
+    <body>
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5>Área do Professor</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-3 font-weight-bold">Id:</div>
+                        <div class="col-md-9" id="userId">@Model.UserId</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 font-weight-bold">Nome:</div>
+                        <div class="col-md-9" id="userName">@Model.Name</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 font-weight-bold">Email:</div>
+                        <div class="col-md-9" id="userEmail">@Model.Email</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

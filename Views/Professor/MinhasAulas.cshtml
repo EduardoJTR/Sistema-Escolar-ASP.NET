@@ -1,0 +1,104 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+    ViewData["Title"] = "Área do Professor";
+}
+
+<html>
+    <p class="h2">Suas Aulas</p>
+    <hr />
+
+    <table class="table">
+        <caption class="text-center">Segunda-Feira</caption>
+        <thead>
+            <th>Horário</th>
+            <th>Matéria</th>
+            <th>Turma</th>
+            <th>Sala</th>
+        </thead>
+        <tbody>
+            @Html.Raw(DetailLesson("Seg"))
+        </tbody>
+    </table>
+
+    <table class="table">
+        <caption class="text-center">Terça-Feira</caption>
+        <thead>
+            <th>Horário</th>
+            <th>Matéria</th>
+            <th>Turma</th>
+            <th>Sala</th>
+        </thead>
+        <tbody>
+            @Html.Raw(DetailLesson("Ter"))
+        </tbody>
+    </table>
+
+    <table class="table">
+        <caption class="text-center">Quarta-Feira</caption>
+        <thead>
+            <th>Horário</th>
+            <th>Matéria</th>
+            <th>Turma</th>
+            <th>Sala</th>
+        </thead>
+        <tbody>
+            @Html.Raw(DetailLesson("Qua"))
+        </tbody>
+    </table>
+
+    <table class="table">
+        <caption class="text-center">Quinta-Feira</caption>
+        <thead>
+            <th>Horário</th>
+            <th>Matéria</th>
+            <th>Turma</th>
+            <th>Sala</th>
+        </thead>
+        <tbody>
+            @Html.Raw(DetailLesson("Qui"))
+        </tbody>
+    </table>
+
+    <table class="table">
+        <caption class="text-center">Sexta-Feira</caption>
+        <thead>
+            <th>Horário</th>
+            <th>Matéria</th>
+            <th>Turma</th>
+            <th>Sala</th>
+        </thead>
+        <tbody>
+            @Html.Raw(DetailLesson("Sex"))
+        </tbody>
+    </table>
+</html>
+
+
+
+@functions
+{
+    public string DetailLesson(string WeekDay)
+    {
+        string ret = "";
+
+        foreach (var _lesson in Model)
+        {
+            if (_lesson.WeekDay == WeekDay)
+            {
+                ret += "<tr> <td>";
+                ret += _lesson.StartTime.ToString("HH:mm");
+                ret += "  -  " + _lesson.EndTime.ToString("HH:mm");
+                ret += "</td>";
+                ret += "<td>" + _lesson.SubjectName + "</td>";
+                ret += "<td>" + _lesson.ClassName + "</td>";
+                ret += "<td>" + _lesson.RoomCode + "</td>";
+                ret += "</tr>";
+            }
+        }
+
+        return ret;
+    }
+}

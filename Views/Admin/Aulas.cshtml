@@ -1,0 +1,177 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<html>
+    <body>
+        <h2>Adicionar Aula</h2>
+        <form asp-controller="Admin" asp-action="AddAula">
+            <select name="classId">
+                <option>Turma</option>
+                @foreach(var _class in Model.Classes)
+                {
+                    <option value="@_class.Id">@_class.ClassCode</option>
+                }
+            </select>
+
+            <select name="subjectId">
+                <option>Matéria</option>
+                @foreach(var subject in Model.Subjects)
+                {
+                    <option value="@subject.Id">@subject.Name</option>
+                }
+            </select>
+
+            <select name="teacherId">
+                @foreach(var teacher in Model.Teachers)
+                {
+                    <option value="@teacher.Id">@teacher.Name</option>
+                }
+            </select>
+
+            <select name="classRoomId">
+                @foreach(var classRoom in Model.ClassRooms)
+                {
+                    <option value="@classRoom.Id">@classRoom.RoomCode</option>
+                }
+        </select>
+
+            <select name="weekDay">
+                <option>Dia da Semana</option>
+                <option value="Seg">Segunda-Feira</option>
+                <option value="Ter">Terça-Feira</option>
+                <option value="Qua">Quarta-Feira</option>
+                <option value="Qui">Quinta-Feira</option>
+                <option value="Sex">Sexta-Feira</option>
+            </select>
+            
+            <label for="horario-inicio">Horário de Início: </label>
+            <input type="time" id="horario-inicio" name="startTime"/>
+
+            <label for="horario-fim">Horário de Início: </label>
+            <input type="time" id="horario-fim" name="endTime"/>
+
+            <input type="submit" value="Adicionar Aula"/>
+        </form>
+
+        <hr/>
+
+            @foreach(var _class in Model.Classes)
+            {
+                <div class="card">
+                    <div class="card-header"><p class="h2">Turma @_class.ClassCode</p></div>
+                    
+                    <div id="Para Segunda">
+                        <button class="btn btn-secondary w-100" data-bs-toggle="collapse" data-bs-target="#segunda-@_class.ClassCode">Segunda-Feira</button>
+                    
+                        <div id="segunda-@_class.ClassCode" class="collapse">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <th>Horário</th>
+                                    <th>Matéria</th>
+                                    <th>Professor</th>
+                                </thead>
+                                <tbody>
+                                    @Html.Raw(DetailLesson("Seg", _class.Id))
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="Para Terça">
+                        <button class="btn btn-secondary w-100" data-bs-toggle="collapse" data-bs-target="#terca-@_class.ClassCode">Terça-Feira</button>
+                    
+                        <div id="terca-@_class.ClassCode" class="collapse">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <th>Horário</th>
+                                    <th>Matéria</th>
+                                    <th>Professor</th>
+                                </thead>
+                                <tbody>
+                                    @Html.Raw(DetailLesson("Ter", _class.Id))
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="Para Quarta">
+                        <button class="btn btn-secondary  w-100" data-bs-toggle="collapse" data-bs-target="#quarta-@_class.ClassCode">Quarta-Feira</button>
+                    
+                        <div id="quarta-@_class.ClassCode" class="collapse">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <th>Horário</th>
+                                    <th>Matéria</th>
+                                    <th>Professor</th>
+                                </thead>
+                                <tbody>
+                                    @Html.Raw(DetailLesson("Qua", _class.Id))
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="Para Quinta">
+                        <button class="btn btn-secondary  w-100" data-bs-toggle="collapse" data-bs-target="#quinta-@_class.ClassCode">Quinta-Feira</button>
+                    
+                        <div id="quinta-@_class.ClassCode" class="collapse">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <th>Horário</th>
+                                    <th>Matéria</th>
+                                    <th>Professor</th>
+                                </thead>
+                                <tbody>
+                                    @Html.Raw(DetailLesson("Qui", _class.Id))
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="Para Sexta">
+                        <button class="btn btn-secondary  w-100" data-bs-toggle="collapse" data-bs-target="#sexta-@_class.ClassCode">Sexta-Feira</button>
+                    
+                        <div id="sexta-@_class.ClassCode" class="collapse">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <th>Horário</th>
+                                    <th>Matéria</th>
+                                    <th>Professor</th>
+                                </thead>
+                                <tbody>
+                                    @Html.Raw(DetailLesson("Sex", _class.Id))
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <hr />
+            }
+    </body>
+</html>
+
+@functions
+{
+    public string DetailLesson(string WeekDay, int ClassId)
+    {
+        string ret = "";
+
+        foreach (var lessonData in Model.LessonsTeacherSubject)
+        {
+            if (lessonData.ClassId == ClassId && lessonData.WeekDay == WeekDay)
+            {
+                ret += "<tr> <td>";
+                ret += lessonData.StartTime.ToString("HH:mm");
+                ret += "  -  " + lessonData.EndTime.ToString("HH:mm");
+                ret += "</td>";
+                ret += "<td>" + lessonData.SubjectName + "</td>";
+                ret += "<td>" + lessonData.TeacherName + "</td>";
+                ret += "</tr>";
+            }
+        }
+
+        return ret;
+    }
+}

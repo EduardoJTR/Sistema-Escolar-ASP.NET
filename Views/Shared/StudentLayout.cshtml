@@ -1,0 +1,28 @@
+﻿<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema Escolar</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ScholSystem.styles.css" asp-append-version="true" />
+    </head>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Sistema Escolar</a>
+
+                <div class="justify-content-between">
+                    <ul class="navbar-nav flex-grow-2">
+                        <li class="nav-item"><a asp-controller="Aluno" asp-action="Horarios" class="nav-link fs-5 px-5">Horários</a></li>
+                        <li class="nav-item"><a asp-controller="Aluno" asp-action="Notas" class="nav-link fs-5 px-5">Notas</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    @RenderBody()
+    </main>
+</html>

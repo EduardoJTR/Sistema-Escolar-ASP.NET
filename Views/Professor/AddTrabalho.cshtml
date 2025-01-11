@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+    ViewData["Title"] = "Área do Professor";
+}
+
+<html>
+    <form method="post" asp-controller="Professor" asp-action="AddTrabalho">
+        <div class="form-group">
+            <label for="titulo">Titulo</label>
+            <input name="title" class="form-control" type="text" placeholder="Informe um Titulo" id="titulo"/>
+        </div>
+        <div class="for-group">
+            <label for="descricao">Descrição</label>
+            <textarea name="description" class="form-control" id="descricao"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Pontuação maxima</label>
+            <input name="maxPoints" class="form-control" type="number"/>
+        </div>
+
+        <div class="form-group">
+            <label for="materia">Materia</label>
+            <select name="subjectId" class="form-control">
+                @foreach(var sbj in Model.SubjectNames)
+                {
+                    <option value="@sbj.Id">@sbj.Name</option>
+                }
+        </select>
+        </div>
+
+        <div class="form-group">
+            <label for="bin">Bimestre</label>
+            <select name="bin" class="form-control" id="bin">
+                <option value="1">1º</option>
+                <option value="2">2º</option>
+                <option value="3">3º</option>
+                <option value="4">4º</option>
+            </select>
+        </div>
+
+        <input name="className" type="hidden" value="@Model.name"/>
+
+        <div class="form-group">
+            <input type="submit" value="Criar"/>
+        </div>
+    </form>
+</html>

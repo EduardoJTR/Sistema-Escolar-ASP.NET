@@ -1,0 +1,267 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+    ViewData["Title"] = "Área do Aluno";
+}
+<html>
+    <body>
+    @foreach (var sbj in Model.Subjects)
+    {
+        <div class="mb-4">
+            <hr />
+            <p class="h1">@sbj.subjectName</p>
+
+            <div class="mb-3">
+                <h5>1º Bimestre</h5>
+                <table class="table table-bordered table-hover">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Titulo do Trabalho</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var workGrade in Model.Term1.works)
+                        {
+                            @if (workGrade.subjectId == sbj.subjectId && workGrade.term == 1)
+                            {
+                                    <tr>
+                                        <td>@workGrade.title</td>
+                                        <td>@workGrade.grade</td>
+                                    </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-hover">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Media dos Trabalhos</th>
+                            <th>Nota da Prova</th>
+                            <th>Media Final</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (Model.Term1.workMean != null)
+                            {
+                                    <td>@Model.Term1.workMean</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                            @if (Model.Term1.exam != null)
+                            {
+                                    <td>@Model.Term1.exam.grade</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                            @if (Model.Term1.workMean != null && Model.Term1.exam != null)
+                            {
+                                    <td>@(Model.Term1.workMean + Model.Term1.exam.grade)</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mb-3">
+                <h5>2º Bimestre</h5>
+                <table class="table table-bordered table-hover">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Titulo do Trabalho</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var workGrade in Model.Term2.works)
+                        {
+                            @if (workGrade.subjectId == sbj.subjectId && workGrade.term == 2)
+                            {
+                                    <tr>
+                                        <td>@workGrade.title</td>
+                                        <td>@workGrade.grade</td>
+                                    </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-hover">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Media dos Trabalhos</th>
+                            <th>Nota da Prova</th>
+                            <th>Media Final</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (Model.Term2.workMean != null)
+                            {
+                                    <td>@Model.Term2.workMean</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                            @if (Model.Term2.exam != null)
+                            {
+                                    <td>@Model.Term2.exam.grade</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                            @if (Model.Term2.workMean != null && Model.Term2.exam != null)
+                            {
+                                    <td>@(Model.Term2.workMean + Model.Term2.exam.grade)</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mb-3">
+                <h5>3º Bimestre</h5>
+                <table class="table table-bordered table-hover">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Titulo do Trabalho</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var workGrade in Model.Term3.works)
+                        {
+                            @if (workGrade.subjectId == sbj.subjectId && workGrade.term == 3)
+                            {
+                                    <tr>
+                                        <td>@workGrade.title</td>
+                                        <td>@workGrade.grade</td>
+                                    </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-hover">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Media dos Trabalhos</th>
+                            <th>Nota da Prova</th>
+                            <th>Media Final</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (Model.Term3.workMean != null)
+                            {
+                                    <td>@Model.Term3.workMean</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                            @if (Model.Term3.exam != null)
+                            {
+                                    <td>@Model.Term3.exam.grade</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                            @if (Model.Term3.workMean != null && Model.Term3.exam != null)
+                            {
+                                    <td>@(Model.Term3.workMean + Model.Term3.exam.grade)</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mb-3">
+                <h5>4º Bimestre</h5>
+                <table class="table table-bordered table-hover">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Titulo do Trabalho</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var workGrade in Model.Term4.works)
+                        {
+                            @if (workGrade.subjectId == sbj.subjectId && workGrade.term == 4)
+                            {
+                                    <tr>
+                                        <td>@workGrade.title</td>
+                                        <td>@workGrade.grade</td>
+                                    </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-hover">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Media dos Trabalhos</th>
+                            <th>Nota da Prova</th>
+                            <th>Media Final</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (Model.Term4.workMean != null)
+                            {
+                                    <td>@Model.Term4.workMean</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                            @if (Model.Term4.exam != null)
+                            {
+                                    <td>@Model.Term4.exam.grade</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                            @if (Model.Term4.workMean != null && Model.Term4.exam != null)
+                            {
+                                    <td>@(Model.Term4.workMean + Model.Term4.exam.grade)</td>
+                            }
+                            else
+                            {
+                                    <td> - </td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+
+    </body>
+</html>

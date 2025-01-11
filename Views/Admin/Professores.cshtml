@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<html>
+    <body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Id de Usuário</th>
+                    <th>Nome</th>
+                    <th>Competências</th>
+                </tr>
+            </thead>
+                <tbody>
+                    @foreach (var teacher in Model)
+                    {
+                        <tr>
+                            <td>@teacher.Id</td>
+                            <td>@teacher.UserId</td>
+                            <td>@teacher.Name</td>
+                            <td>@teacher.Skills</td>
+                        </tr>
+                    }
+                </tbody>
+        </table>
+        <form asp-controller="Admin" asp-action="AddTeacher">
+            <input type="text" name="name" placeholder="Nome"/>
+            <input type="email" name="email" placeholder="Email de usuário"/>
+            <input type="password" name="password" placeholder="Senha de usuário"/>
+
+            <br />
+            <input type="textbox" name="skills" placeholder="Competências do professor"/>
+            <input type="submit" value="Adicionar Professor"/>
+        </form>
+    </body>
+</html>

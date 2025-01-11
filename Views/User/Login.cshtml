@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p class="h1">Login</p>
+        <hr />
+        <form method="post" asp-controller="User" asp-action="UserAuth" class="container mt-4">
+        <div class="mb-3">
+            <label for="id" class="form-label">Identificador</label>
+            <input type="text" name="id" class="form-control" placeholder="Identificador" />
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Seu Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Seu Email" />
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Sua Senha</label>
+            <input type="password" name="password" class="form-control" placeholder="Sua Senha" />
+        </div>
+
+        <div class="mb-3">
+            <label for="type" class="form-label">Tipo</label>
+            <select name="type" class="form-select">
+                <option value="aluno">Aluno</option>
+                <option value="professor">Professor</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Acessar</button>
+    </form>
+    </body>
+</html>
