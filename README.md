@@ -25,7 +25,7 @@ A administração também tem o poder de organizar as aulas de cada turma, tendo
 
 
 ## Professor
-Logando como professor, o professor tem acesso a ferramentas de exibição a aos trabalhos de seus alunos.
+Logando como professor, o usuário tem acesso a ferramentas de exibição a aos trabalhos de seus alunos.
 ![exemplo_professor](https://github.com/user-attachments/assets/8a7d2459-730e-458a-83e4-62c04b3ad124)
 
 O professor tem acesso às suas aulas (Botão "Minhas Aulas"), horários, turmas, matérias e salas, dividos em dias da semana.
@@ -46,3 +46,13 @@ O professor também pode adicionar trabalhos para a turma, na opção "Adicionar
 Após o adicionar o trabalho, este irá aparecer listado na página anterior, ao clicar no trabalho, o professor pode especificar as notas de cada aluno no trabalho (Como dito antes, o sistema não foi feito para aulas EAD, ou seja, o professor deve receber os trabalhos em mãos, e depois colocar as notas no sistema, pois ele não pode receber os trabalhos dos alunos diretamente pelo sistema), após colocar as notas, estas ficarão salvas no sistema, então o professor poderá voltar depois e ter acesso às notas de seus alunos no trabalho.
 ![exemplo_trabalho](https://github.com/user-attachments/assets/deaf11fc-b8d8-4744-bd21-f3bb97f01e8e)
 
+
+## Aluno
+Logando como aluno, o usuário tem acesso às suas aulas e as suas notas.
+![exemplo_aluno](https://github.com/user-attachments/assets/2e8a5dbb-b4ea-499b-9242-77baeaf01666)
+
+No botão "Notas", o aluno tem acesso às suas médias de trabalhos e provas de cada matéria, divididas por bimestre.
+![exemplo_notas](https://github.com/user-attachments/assets/408eab28-625a-485e-a057-1e0c78bc9b68)
+
+No botão "Horários", o aluno tem acesso às aulas de sua turma em cada dia da semana.
+![exemplo_horarios](https://github.com/user-attachments/assets/5359977b-b41f-43ea-8e0c-3e9380fa55fb)
