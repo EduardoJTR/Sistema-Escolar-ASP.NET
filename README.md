@@ -19,3 +19,5 @@ No momento em que a administração cria um novo professor/aluno, ela deve prove
 ![exemplo_admin](https://github.com/user-attachments/assets/cceedede-014d-43e6-a323-b507d87f435a)
 ![exemplo_admin_professor](https://github.com/user-attachments/assets/fad41c7e-e709-446a-9bdd-0a22765bc40b)
 
+A administração também tem o poder de organizar as aulas de cada turma, tendo acesso a um menu, que informa as aulas referentes a cada dia da semana para cada turma, com dados como horário, matéria e professor. Para adicionar uma aula, a administração deve informar a turma, a matéria, o professor, a sala em que a aula vai ocorrer, o dia da semana e o horário.
+![exemplo_admin_aulas](https://github.com/user-attachments/assets/0d83d8fc-da73-4969-ab79-f90b845bd9db)
