@@ -8,14 +8,23 @@
 
 <html>
     <body>
-        <form method="get" asp-controller="Professor" asp-action="Turma">
-            <select name="className">
-                @foreach(var _class in Model)
-                {
-                    <option value="@_class">@_class</option>
-                }
-            </select>
-            <input type="submit" value="Continuar"/>
-        </form>
+        <div class="container d-flex justify-content-center mt-5">
+        <div class="card p-4 shadow-sm" style="max-width: 400px; width: 100%;">
+            <form method="get" asp-controller="Professor" asp-action="Turma" class="form-inline">
+                <div class="form-group mb-3">
+                    <label for="className" class="form-label">Turma</label>
+                    <select name="className" id="className" class="form-select">
+                            @foreach (var _class in Model)
+                            {
+                                <option value="@_class">@_class</option>
+                            }
+                    </select>
+                </div>
+                <div class="form-group mb-3 text-center">
+                    <input type="submit" value="Continuar" class="btn btn-primary w-100"/>
+                </div>
+            </form>
+        </div>
+    </div>
     </body>
 </html>
