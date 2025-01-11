@@ -11,4 +11,11 @@ Na página de Login o usuário deve se identificar, com seu Id de identificaçã
 
 
 ## Administração
-A área da administração 
+A área da administração conta com várias ferramentas utilizadas na administração da escola, organização de alunos, professores, salas, aulas e etc.
+![menu_admin](https://github.com/user-attachments/assets/9ad68be2-348a-46a6-b3fe-0ec5f88a6337)
+A administração tem o poder de lançar novos professores/alunos no banco de dados, e tem acesso a uma tabela mostrando seus dados, cada aluno tem uma turma, e um nome (Além dos dados de usuários e outros dados implícitos no banco de dados), e cada professor tem um nome, e suas competências (Além dos dados de usuários e outros dados implícitos no banco de dados), quando a administração cria um novo professor/aluno ela deve informar todos esses dados.
+
+No momento em que a administração cria um novo professor/aluno, ela deve prover o email e a senha de usuário do professor/aluno, para que ele tenha acesso ao sistema.
+![exemplo_admin](https://github.com/user-attachments/assets/cceedede-014d-43e6-a323-b507d87f435a)
+![exemplo_admin_professor](https://github.com/user-attachments/assets/fad41c7e-e709-446a-9bdd-0a22765bc40b)
+
